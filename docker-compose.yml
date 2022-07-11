@@ -1,0 +1,51 @@
+version: "3.8"
+services:
+    api-store:
+        container_name: api-store
+        build:
+            context: "."
+        volumes:
+            - .:/var/www/html
+        ports:
+            - 83:80
+        restart: unless-stopped
+        tty: true
+        dns:
+            - 8.8.8.8
+        environment:
+            DB_CONNECTION: ${DB_CONNECTION}
+            DB_DATABASE: ${DB_DATABASE}
+            DB_PORT: 3306
+            DB_USERNAME: ${DB_USERNAME}
+            DB_HOST: db-store
+            DB_PASSWORD: ${DB_PASSWORD}
+
+        networks:
+            - api-network
+    redis:
+        image: redis
+        command: redis-server --requirepass 1234
+        environment:
+            - ALLOW_EMPTY_PASSWORD=yes
+            - REDIS_PASSWORD=1234
+        networks:
+            - api-network
+
+    db-store:
+        image: mysql:5.7
+        container_name: db-store
+        restart: unless-stopped
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_USER: ${DB_USERNAME}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - ./.docker/mysql/dbdata:/var/lib/mysql
+        ports: 
+            - ${DB_PORT}:3306
+        networks:
+            - api-network
+networks:
+    api-network:
+        driver: bridge
