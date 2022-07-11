@@ -21,7 +21,7 @@ services:
             DB_PASSWORD: ${DB_PASSWORD}
 
         networks:
-            - api-network
+            - api-store-network
     redis:
         image: redis
         command: redis-server --requirepass 1234
@@ -29,10 +29,10 @@ services:
             - ALLOW_EMPTY_PASSWORD=yes
             - REDIS_PASSWORD=1234
         networks:
-            - api-network
+            - api-store-network
 
     db-store:
-        image: mysql:5.7
+        image: mysql:8.0
         container_name: db-store
         restart: unless-stopped
         environment:
@@ -45,7 +45,7 @@ services:
         ports: 
             - ${DB_PORT}:3306
         networks:
-            - api-network
+            - api-store-network
 networks:
-    api-network:
+    api-store-network:
         driver: bridge
