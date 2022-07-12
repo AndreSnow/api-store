@@ -32,7 +32,5 @@ RUN a2enmod rewrite headers ssl && \
 
 RUN php artisan config:clear && \
     php artisan cache:clear
-    # php artisan key:generate && \
-    # php artisan migrate:fresh --seed
 
 EXPOSE 80

@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Contracts\StoreRepositoryInterface;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
 {
+    protected $repository;
+
+    public function __construct(StoreRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,6 @@ class StoreController extends Controller
     public function index()
     {
         //
-        exit('index');
     }
 
     /**
