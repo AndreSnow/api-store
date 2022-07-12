@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('price');
+            $table->unsignedBigInteger('store_id');
+            $table->foreign('store_id')->references('id')->on('stores');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
