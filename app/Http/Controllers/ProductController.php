@@ -2,10 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
+use App\Repositories\Contracts\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    protected $repository;
+
+    public function __construct(ProductRepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,18 +22,61 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-        exit('index');
+        $product = $this->repository->getAll();
+
+        if ($product) {
+            return response()->json($product, 200);
+        }
+        return response()->json(['message' => 'Nada encontrado!'], 204);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource actives.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function active()
     {
-        //
+        $store = $this->repository->findWhere('active', 1);
+
+        if ($store) {
+            return response()->json($store, 200);
+        }
+        return response()->json(['message' => 'Nada encontrado!'], 204);
+    }
+
+
+
+
+
+    /**
+     * Update the specified resource in storage.
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     */
+    // public function edit(ProductRequest $request)
+    // {
+    //     $product = $this->repository->upgrade($request->id);
+
+    //     return response()->json($product, 200);
+    // }
+
+
+
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(ProductRequest $request)
+    {
+        $product = $this->repository->findById($request->id);
+
+        return response()->json($product, 200);
     }
 
     /**
@@ -33,31 +85,11 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
-    }
+        $product = $this->repository->store($request->validated());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return response()->json($product, 201);
     }
 
     /**
@@ -67,9 +99,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        //
+        $product = $this->repository->update($id, $request->validated());
+
+        return response()->json($product, 200);
     }
 
     /**
@@ -78,8 +112,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ProductRequest $request)
     {
-        //
+        $product = $this->repository->delete($request->id);
+
+        return response()->json($product, 204);
     }
 }

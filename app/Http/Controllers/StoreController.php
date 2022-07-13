@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Contracts\StoreRepositoryInterface;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreRequest;
 
 class StoreController extends Controller
 {
@@ -21,28 +21,12 @@ class StoreController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $store = $this->repository->getAll();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        if ($store) {
+            return response()->json($store, 200);
+        }
+        return response()->json(['message' => 'Nada encontrado!'], 204);
     }
 
     /**
@@ -51,20 +35,24 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(StoreRequest $request)
     {
-        //
+        $store = $this->repository->findById($request->id);
+
+        return response()->json($store, 200);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Store a newly created resource in storage.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function store(StoreRequest $request)
     {
-        //
+        $store = $this->repository->store($request->validated());
+
+        return response()->json($store, 201);
     }
 
     /**
@@ -74,9 +62,11 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreRequest $request, $id)
     {
-        //
+        $store = $this->repository->update($id, $request->validated());
+
+        return response()->json($store, 200);
     }
 
     /**
@@ -85,8 +75,10 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(StoreRequest $request)
     {
-        //
+        $store = $this->repository->delete($request->id);
+
+        return response()->json($store, 204);
     }
 }
