@@ -27,7 +27,6 @@ Route::prefix('store')->group(function () {
 Route::prefix('products')->group(function () {
     Route::get('', [ProductController::class, 'index']);
     Route::get('/is/active', [ProductController::class, 'active']);
-    Route::patch('/{id}', [ProductController::class, 'edit']);
     Route::get('/{id}', [ProductController::class, 'show']);
     Route::post('', [ProductController::class, 'store']);
     Route::put('{id}', [ProductController::class, 'update']);

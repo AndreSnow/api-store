@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Repositories\Contracts\ProductRepositoryInterface;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -44,27 +43,6 @@ class ProductController extends Controller
         }
         return response()->json(['message' => 'Nada encontrado!'], 204);
     }
-
-
-
-
-
-    /**
-     * Update the specified resource in storage.
-     * 
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     */
-    // public function edit(ProductRequest $request)
-    // {
-    //     $product = $this->repository->upgrade($request->id);
-
-    //     return response()->json($product, 200);
-    // }
-
-
-
-
 
     /**
      * Display the specified resource.
