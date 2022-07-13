@@ -24,10 +24,25 @@ services:
             - api-store-network
     redis:
         image: redis
-        command: redis-server --requirepass 1234
+        container_name: microservice-email-redis
+        ports:
+            - 6383:6379
+        command: redis-server --requirepass ${REDIS_PASSWORD}
         environment:
             - ALLOW_EMPTY_PASSWORD=yes
-            - REDIS_PASSWORD=1234
+            - REDIS_PASSWORD=${REDIS_PASSWORD}
+        networks:
+            - api-store-network
+
+    queue:
+        container_name: queue-email
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        command: "php artisan queue:work"
+        volumes:
+            - .:/var/www/html
         networks:
             - api-store-network
 
