@@ -2,15 +2,21 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+/**
+ * @group Produto
+ * @testdox Gerenciamento de produtos
+ * 
+ * @author André Neves
+ */
 class ProductTest extends TestCase
 {
     /**
-     * A basic test example.
-     *
-     * @return void
+     * Teste de listagem de produtos.
+     * @group Listar
+     * 
+     * @author André Neves
      */
     public function test_list_products()
     {
@@ -29,6 +35,12 @@ class ProductTest extends TestCase
             ]);
     }
 
+    /**
+     * Teste de listagem de produtos ativos.
+     * @group Listar
+     * 
+     * @author André Neves
+     */
     public function test_list_active_products()
     {
         $this->get('api/products?active=1')
@@ -38,6 +50,12 @@ class ProductTest extends TestCase
             ]);
     }
 
+    /**
+     * Teste de listagem de produtos especificos.
+     * @group Listar
+     * 
+     * @author André Neves
+     */
     public function test_list_specific_product()
     {
         $this->get('api/products/2')
@@ -53,6 +71,12 @@ class ProductTest extends TestCase
             ]);
     }
 
+    /**
+     * Teste de criação de um produto.
+     * @group Criar
+     * 
+     * @author André Neves
+     */
     public function test_create_product()
     {
         $this->post('api/products', [
@@ -73,6 +97,12 @@ class ProductTest extends TestCase
             ]);
     }
 
+    /**
+     * Teste de atualização de um produto.
+     * @group Atualizar
+     * 
+     * @author André Neves
+     */
     public function test_update_product()
     {
         $this->put('api/products/2', [
@@ -84,9 +114,15 @@ class ProductTest extends TestCase
             ->assertOk();
     }
 
+    /**
+     * Teste de exclusão de um produto.
+     * @group Excluir
+     * 
+     * @author André Neves
+     */
     public function test_delete_product()
     {
-        $this->delete('api/products/6')
+        $this->delete('api/products/3')
             ->assertStatus(204);
     }
 }
