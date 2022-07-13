@@ -27,14 +27,14 @@ class ProductRequest extends FormRequest
         return match (true) {
             $this->getMethod() == 'POST' => [
                 'name' => 'required|string|min:3|max:60',
-                'price' => 'required|integer|min:99|max:999999',
+                'price' => 'required|integer|min:10|max:9999',
                 'store_id' => 'required|integer',
                 'active' => 'required|boolean',
             ],
 
             $this->getMethod() == 'PUT' => [
                 'name' => 'string|min:3|max:60',
-                'price' => 'integer|min:99|max:999999',
+                'price' => 'integer|min:10|max:9999',
                 'store_id' => 'integer',
                 'active' => 'boolean',
             ],

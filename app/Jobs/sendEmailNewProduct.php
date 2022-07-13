@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Product;
+use App\Models\Store;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -15,15 +16,18 @@ class sendEmailNewProduct implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $product;
+    protected $store;
+    protected $email;
      
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Product $product)
+    public function __construct(Product $product, Store $store)
     {
         $this->product = $product;
+        $this->store = $store;
     }
 
     /**
@@ -33,6 +37,9 @@ class sendEmailNewProduct implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->email)->send(new \App\Mail\NewProductCreated()); 
+        // Mail::to($this->email)->send(new \App\Mail\NewProductCreated()); 
+        $this->mail->subject('Novo produto adicionado a loja '.$this->product->name);
+        Mail::to($this->store->email, $this->store->name);
+        Mail::send(new \App\Mail\NewProductCreated()); 
     }
 }
