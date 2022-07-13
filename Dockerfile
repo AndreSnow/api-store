@@ -30,7 +30,4 @@ RUN chmod 777 storage/* && \
 RUN a2enmod rewrite headers ssl && \
     service apache2 restart
 
-RUN php artisan config:clear && \
-    php artisan cache:clear
-
 EXPOSE 80

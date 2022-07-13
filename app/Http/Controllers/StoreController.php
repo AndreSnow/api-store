@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Repositories\Contracts\StoreRepositoryInterface;
 use App\Http\Requests\StoreRequest;
+use App\Jobs\sendEmailNewProduct;
+use Illuminate\Support\Facades\Cache;
 
 class StoreController extends Controller
 {
@@ -21,7 +23,9 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $store = $this->repository->getAll();
+        $store = Cache::remember("new_store", env('CACHE_TIME'), function () {
+            return $this->repository->getAll();
+        });
 
         if ($store) {
             return response()->json($store, 200);
@@ -37,7 +41,9 @@ class StoreController extends Controller
      */
     public function show(StoreRequest $request)
     {
-        $store = $this->repository->findById($request->id);
+        $store = Cache::remember("new_specify_store", env('CACHE_TIME'), function () use ($request) {
+            return $this->repository->findById($request->id);
+        });
 
         return response()->json($store, 200);
     }
@@ -52,6 +58,11 @@ class StoreController extends Controller
     {
         $store = $this->repository->store($request->validated());
 
+        sendEmailNewProduct::dispatch()
+            ->onQueue('queue_micro_mail');
+
+        \Illuminate\Support\Facades\Artisan::call('cache:clear');
+
         return response()->json($store, 201);
     }
 
@@ -65,6 +76,11 @@ class StoreController extends Controller
     public function update(StoreRequest $request, $id)
     {
         $store = $this->repository->update($id, $request->validated());
+
+        sendEmailNewProduct::dispatch()
+            ->onQueue('queue_micro_mail');
+
+        \Illuminate\Support\Facades\Artisan::call('cache:clear');
 
         return response()->json($store, 200);
     }

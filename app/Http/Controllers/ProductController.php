@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Jobs\sendEmailNewProduct;
 use App\Repositories\Contracts\ProductRepositoryInterface;
+use Illuminate\Support\Facades\Cache;
 
 class ProductController extends Controller
 {
@@ -21,7 +23,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = $this->repository->getAll();
+        $product = Cache::remember("new_product", env('CACHE_TIME'), function () {
+            return $this->repository->getAll();
+        });
 
         if ($product) {
             return response()->json($product, 200);
@@ -36,7 +40,9 @@ class ProductController extends Controller
      */
     public function active()
     {
-        $store = $this->repository->findWhere('active', 1);
+        $store = Cache::remember("new_active_product", env('CACHE_TIME'), function () {
+            return $this->repository->findWhere('active', 1);
+        });
 
         if ($store) {
             return response()->json($store, 200);
@@ -52,7 +58,9 @@ class ProductController extends Controller
      */
     public function show(ProductRequest $request)
     {
-        $product = $this->repository->findById($request->id);
+        $product = Cache::remember("new_specify_product", env('CACHE_TIME'), function () use ($request) {
+            return $this->repository->findById($request->id);
+        });
 
         return response()->json($product, 200);
     }
@@ -67,6 +75,11 @@ class ProductController extends Controller
     {
         $product = $this->repository->store($request->validated());
 
+        sendEmailNewProduct::dispatch()
+            ->onQueue('queue_micro_mail');
+
+        \Illuminate\Support\Facades\Artisan::call('cache:clear');
+
         return response()->json($product, 201);
     }
 
@@ -80,6 +93,11 @@ class ProductController extends Controller
     public function update(ProductRequest $request, $id)
     {
         $product = $this->repository->update($id, $request->validated());
+
+        sendEmailNewProduct::dispatch()
+            ->onQueue('queue_micro_mail');
+
+        \Illuminate\Support\Facades\Artisan::call('cache:clear');
 
         return response()->json($product, 200);
     }

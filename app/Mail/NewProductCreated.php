@@ -27,6 +27,6 @@ class NewProductCreated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.products.created');
+        return $this->markdown('mails.products');
     }
 }
