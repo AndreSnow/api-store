@@ -16,9 +16,10 @@
 
 <h2 align="center">Sobre</h2>
 
-Essa api foi desenvolvida como uma loja.
+Essa api foi desenvolvida como uma loja. \
+Nela podemos criar produtos, novas lojas, há tambem uma função para quando uma nova loja ou produto é criada, receber por email a messagem de sucesso;
 
-Documentação no [postman](precisa colocar url)
+Documentação no [postman](https://documenter.getpostman.com/view/14026033/UzQuN55J)
 
 <a href=""></a>
 
@@ -29,14 +30,37 @@ Documentação no [postman](precisa colocar url)
 <h2 align="center">Preview</h2>
 
    <p align="center">
-    <img src="precisa colocar url" width="400" alt="Preview">
+    <img src="https://i.ibb.co/yPs4TBQ/Screenshot-from-2022-07-13-20-47-59.png"><width="400" alt="Preview">
    </p>
 
 ---
 
 <h2 align="center">Funcionalidades</h2>
    
-- É uma loja com seus respectivos produtos
+- Gerenciar a criação de lojas e produtos,\
+sobre a loja:
+   > listar todas;\
+   > listar uma especifica;\
+   > criar;\
+   > atualizar;\
+   > deletar;
+
+   sobre os produtos:
+
+   > listar todos;\
+   > listar um especifico;\
+   > listar ativos;\
+   > criar;\
+   > atualizar;\
+   > deletar;
+
+-   Aqui podemos conferir o funcionamento do RabbitMQ para o gerenciamento de fila no envio de emails:
+<p align="center">
+<img src="https://i.ibb.co/0qJmxK1/Screenshot-from-2022-07-13-18-48-59.png"><width="400" alt="RabbitMQ gerenciando filas">
+
+-   Aqui o MailTrap recebendo os emails após passarem pela fila do RabbitMQ:
+<p align="center">
+<img src="https://i.ibb.co/jvNzvT7/Screenshot-from-2022-07-13-18-49-16.png"><width="400" alt="MailTrap Recebendo emails de sucesso">
 
 ---
 
@@ -44,9 +68,7 @@ Documentação no [postman](precisa colocar url)
 
    <p>
     <br>
-    <a>Durante a criação do projeto o mais desafiador foi o gerenciamento do banco, houve duvidas sobre como fazer, mas nada que um pouco de pesquisa não resolva.</a><br>
-    <br>
-    <br>
+    <a>Foi um projeto onde eu quis me desafiar e posso dizer que consegui, apesar de já ter trabalhado com envio de emails, aqui eu decidir usar o RabbitMQ, por algum motivo ele não queria funciona, descobri que era um problema nas configurações do drive, infelizmente isso tomou muito tempo, mas fiz pois gostaria de entregar um projeto mais completo, também foi necessário relembrar alguns conceitos nas questões dos testes</a><br>
    </p>
 
 ---
@@ -65,18 +87,6 @@ git clone https://github.com/AndreSnow/api-store.git
 cd api-store
 ```
 
--   Instalar as dependências:
-
-```sh
-composer install
-```
-
--   Rodar o app:
-
-```sh
-php artisan serve
-```
-
 -   Rodar o app pelo docker:
 
 ```sh
@@ -87,16 +97,44 @@ sudo su
 docker-compose up -d --build
 ```
 
+-   Necessário entrar no docker, use
+
+```
+docker exec -it api-store bash
+```
+
+-   Instalar as dependências:
+
+```sh
+composer install
+```
+
+-   Todas as migrations funcionam, para rodar basta estar dentro do container e digitar
+
+```
+php artisan migrate
+```
+
 -   Parar o container
 
 ```sh
 docker-compose stop
 ```
 
+-   Também é possível rodar o app pelo serve do laravel, mas será necessário ter:
+    > PHP >= 8.0\
+    > MYSQL >= 8.0\
+    > Redis\
+    > Laravel >= 9.0
+
+```sh
+php artisan serve
+```
+
 -   Teste pelo postman usando a rota:
 
 ```sh
-precisa colocar url
+{{host}}api/store
 ```
 
 -   É possivel testar diretamente pela aplicação, nos testes do laravel e deve retornar isso
@@ -105,9 +143,13 @@ precisa colocar url
 php artisan test
 ```
 
+<p align="center">
+<img src="https://i.ibb.co/6BD8QLM/Screenshot-from-2022-07-13-16-02-47.png"><width="400" alt="Teste de software">
+</p>
+
 -   Também acrescentei um teste na qualidade do software
  <p align="center">
-<img src="precisa colocar url"  width="400" alt="Qualidade de software">
+<img src="https://i.ibb.co/JFYfRNW/Screenshot-from-2022-07-13-19-11-34.png"><width="400" alt="Qualidade de software">
 </p>
 
 ```sh
