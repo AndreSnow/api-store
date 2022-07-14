@@ -1,0 +1,1547 @@
+{
+	"info": {
+		"_postman_id": "58496921-be29-4e33-90cc-f1f835ef980b",
+		"name": "Api Store",
+		"description": "Api Store\n\nDesenvolvida por **André Neves**\n\nNecessário **Docker** para funcionar, isso também torna mais fácil e evita erros de versão\n\nCaso não utilize o Docker, será necessário:\n\nPHP >= 8.0\n\nMYSQL >= 8.0\n\nLaravel >= 9.0\n\nRedis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14026033"
+	},
+	"item": [
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "list stores",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}api/store",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"store"
+							]
+						},
+						"description": "StatusCode: 200\n\nO que faz: Lista todas as lojas"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/store",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"store"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 18:33:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Debian)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "283"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Solluti\",\n        \"email\": \"solluti@company.com\",\n        \"created_at\": \"2022-07-12T15:01:30.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:30.000000Z\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Test Store\",\n        \"email\": \"email@test.com\",\n        \"created_at\": \"2022-07-13T18:31:49.000000Z\",\n        \"updated_at\": \"2022-07-13T18:31:49.000000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "list specify store",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}api/store/1",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"store",
+								"1"
+							]
+						},
+						"description": "StatusCode: 200\n\nO que faz: Lista uma loja especifica"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/store/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"store",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 18:33:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Debian)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Solluti\",\n    \"email\": \"solluti@company.com\",\n    \"created_at\": \"2022-07-12T15:01:30.000000Z\",\n    \"updated_at\": \"2022-07-12T15:01:30.000000Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "{{$randomNamePrefix}}",
+									"description": "deve ser uma string",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "{{$randomEmail}}",
+									"description": "deve ser do tipo email 'exemplo@host.com'",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/store",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"store"
+							]
+						},
+						"description": "StatusCode: 201\n\nO que faz: Cria uma loja"
+					},
+					"response": [
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Ms.",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "Jaylin.Daniel@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/store",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"store"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 18:33:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Debian)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "143"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Ms.\",\n    \"email\": \"Margot.Beatty48@yahoo.com\",\n    \"updated_at\": \"2022-07-13T18:33:55.000000Z\",\n    \"created_at\": \"2022-07-13T18:33:55.000000Z\",\n    \"id\": 8\n}"
+						}
+					]
+				},
+				{
+					"name": "update store",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}api/store/2?name={{$randomNamePrefix}}&email={{$randomEmail}}",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"store",
+								"2"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{$randomNamePrefix}}",
+									"description": "deve ser do tipo string"
+								},
+								{
+									"key": "email",
+									"value": "{{$randomEmail}}",
+									"description": "deve ser do tipo email 'exemplo@host.com'"
+								}
+							]
+						},
+						"description": "StatusCode: 200\n\nO que faz: Atualiza uma loja"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/store/8?name=nome atualizado&email=email@atualizado.com",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"store",
+										"8"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "nome atualizado"
+										},
+										{
+											"key": "email",
+											"value": "email@atualizado.com"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 18:34:36 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Debian)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "true"
+						}
+					]
+				},
+				{
+					"name": "delete store",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}api/store/2",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"store",
+								"2"
+							]
+						},
+						"description": "StatusCode: 204\n\nO que faz: Apaga uma loja"
+					},
+					"response": [
+						{
+							"name": "204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/store/7",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"store",
+										"7"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 18:35:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Debian)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Podemos encontrar os endPoints:\n\n| **Método** | **EndPoint** | **StatusCode** |\n| --- | --- | --- |\n| GET | lists stores | 200 |\n| GET | list specify store | 200 |\n| POST | create store | 201 |\n| PUT | update store | 200 |\n| DEL | delete store | 204 |"
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "list products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}api/products",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"products"
+							]
+						},
+						"description": "StatusCode: 200\n\nO que faz: Lista todos os produtos"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/products",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 16:35:53 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Debian)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3554"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"blanditiis\",\n        \"price\": \"R$21.915,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-12T15:01:31.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:31.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"sequi\",\n        \"price\": \"R$71.450,00\",\n        \"store_id\": 1,\n        \"active\": 1,\n        \"created_at\": \"2022-07-12T15:01:31.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:31.000000Z\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"in\",\n        \"price\": \"R$22.635,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-12T15:01:31.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:31.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"ullam\",\n        \"price\": \"R$87.925,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-12T15:01:31.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:31.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"nostrum\",\n        \"price\": \"R$93.681,00\",\n        \"store_id\": 1,\n        \"active\": 1,\n        \"created_at\": \"2022-07-12T15:01:31.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:31.000000Z\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"minus\",\n        \"price\": \"R$32.638,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-12T15:01:31.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:31.000000Z\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"sed\",\n        \"price\": \"R$13.221,00\",\n        \"store_id\": 1,\n        \"active\": 1,\n        \"created_at\": \"2022-07-12T15:01:32.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:32.000000Z\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"molestiae\",\n        \"price\": \"R$82.931,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-12T15:01:32.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:32.000000Z\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"deleniti\",\n        \"price\": \"R$29.276,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-12T15:01:33.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:33.000000Z\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"velit\",\n        \"price\": \"R$42.124,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-12T15:01:33.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:33.000000Z\"\n    },\n    {\n        \"id\": 11,\n        \"name\": \"Miss\",\n        \"price\": \"R$101,00\",\n        \"store_id\": 1,\n        \"active\": 1,\n        \"created_at\": \"2022-07-12T20:19:04.000000Z\",\n        \"updated_at\": \"2022-07-12T20:27:02.000000Z\"\n    },\n    {\n        \"id\": 13,\n        \"name\": \"Ms.\",\n        \"price\": \"R$100,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-12T20:50:02.000000Z\",\n        \"updated_at\": \"2022-07-12T20:50:02.000000Z\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"Dr.\",\n        \"price\": \"R$1.000,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-12T21:16:27.000000Z\",\n        \"updated_at\": \"2022-07-12T21:16:27.000000Z\"\n    },\n    {\n        \"id\": 15,\n        \"name\": \"Dr.\",\n        \"price\": \"R$999,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-12T21:17:55.000000Z\",\n        \"updated_at\": \"2022-07-12T21:17:55.000000Z\"\n    },\n    {\n        \"id\": 16,\n        \"name\": \"Ms.\",\n        \"price\": \"R$100,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-13T01:39:49.000000Z\",\n        \"updated_at\": \"2022-07-13T01:39:49.000000Z\"\n    },\n    {\n        \"id\": 17,\n        \"name\": \"Mrs.\",\n        \"price\": \"R$100,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-13T15:18:02.000000Z\",\n        \"updated_at\": \"2022-07-13T15:18:02.000000Z\"\n    },\n    {\n        \"id\": 18,\n        \"name\": \"Mrs.\",\n        \"price\": \"R$100,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-13T15:19:30.000000Z\",\n        \"updated_at\": \"2022-07-13T15:19:30.000000Z\"\n    },\n    {\n        \"id\": 19,\n        \"name\": \"Ms.\",\n        \"price\": \"R$100,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-13T15:21:59.000000Z\",\n        \"updated_at\": \"2022-07-13T15:21:59.000000Z\"\n    },\n    {\n        \"id\": 20,\n        \"name\": \"Mr.\",\n        \"price\": \"R$100,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-13T15:46:55.000000Z\",\n        \"updated_at\": \"2022-07-13T15:46:55.000000Z\"\n    },\n    {\n        \"id\": 21,\n        \"name\": \"Miss\",\n        \"price\": \"R$100,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-13T15:52:16.000000Z\",\n        \"updated_at\": \"2022-07-13T15:52:16.000000Z\"\n    },\n    {\n        \"id\": 22,\n        \"name\": \"Mr.\",\n        \"price\": \"R$100,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-13T16:24:12.000000Z\",\n        \"updated_at\": \"2022-07-13T16:24:12.000000Z\"\n    },\n    {\n        \"id\": 23,\n        \"name\": \"Dr.\",\n        \"price\": \"R$100,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-13T16:28:45.000000Z\",\n        \"updated_at\": \"2022-07-13T16:28:45.000000Z\"\n    },\n    {\n        \"id\": 24,\n        \"name\": \"Miss\",\n        \"price\": \"R$100,00\",\n        \"store_id\": 1,\n        \"active\": 0,\n        \"created_at\": \"2022-07-13T16:31:56.000000Z\",\n        \"updated_at\": \"2022-07-13T16:31:56.000000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "list active products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}api/products/is/active",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"products",
+								"is",
+								"active"
+							]
+						},
+						"description": "StatusCode: 200\n\nO que faz: Lista produtos ativos"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/products/is/active",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products",
+										"is",
+										"active"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 18:32:36 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Debian)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "622"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"name\": \"sequi\",\n        \"price\": \"R$71.450,00\",\n        \"store_id\": 1,\n        \"active\": 1,\n        \"created_at\": \"2022-07-12T15:01:31.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:31.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"nostrum\",\n        \"price\": \"R$93.681,00\",\n        \"store_id\": 1,\n        \"active\": 1,\n        \"created_at\": \"2022-07-12T15:01:31.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:31.000000Z\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"sed\",\n        \"price\": \"R$13.221,00\",\n        \"store_id\": 1,\n        \"active\": 1,\n        \"created_at\": \"2022-07-12T15:01:32.000000Z\",\n        \"updated_at\": \"2022-07-12T15:01:32.000000Z\"\n    },\n    {\n        \"id\": 11,\n        \"name\": \"Miss\",\n        \"price\": \"R$101,00\",\n        \"store_id\": 1,\n        \"active\": 1,\n        \"created_at\": \"2022-07-12T20:19:04.000000Z\",\n        \"updated_at\": \"2022-07-12T20:27:02.000000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "list specify products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}api/products/2",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"products",
+								"2"
+							]
+						},
+						"description": "StatusCode: 200\n\nO que faz: Lista um produto especifico"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/products/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 18:27:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Debian)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "155"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"sequi\",\n    \"price\": \"R$71.450,00\",\n    \"store_id\": 1,\n    \"active\": 1,\n    \"created_at\": \"2022-07-12T15:01:31.000000Z\",\n    \"updated_at\": \"2022-07-12T15:01:31.000000Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "{{$randomNamePrefix}}",
+									"description": "deve ser do tipo string",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100",
+									"description": "deve ser do tipo integer 1 a 999999",
+									"type": "text"
+								},
+								{
+									"key": "store_id",
+									"value": "1",
+									"description": "deve ser do tipo integer e estar relacionado a alguma loja",
+									"type": "text"
+								},
+								{
+									"key": "active",
+									"value": "0",
+									"description": "deve ser do tipo bool, ou seja, 0 ou 1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}api/products?name={{$randomNamePrefix}}&price=100&store_id=1&active=0",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{$randomNamePrefix}}"
+								},
+								{
+									"key": "price",
+									"value": "100"
+								},
+								{
+									"key": "store_id",
+									"value": "1"
+								},
+								{
+									"key": "active",
+									"value": "0"
+								}
+							]
+						},
+						"description": "StatusCode: 201\n\nO que faz: Cria um produto"
+					},
+					"response": [
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Miss",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "store_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "active",
+											"value": "0",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/products?name=Mr.&price=100&store_id=1&active=0",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Mr."
+										},
+										{
+											"key": "price",
+											"value": "100"
+										},
+										{
+											"key": "store_id",
+											"value": "1"
+										},
+										{
+											"key": "active",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 18:35:20 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Debian)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "155"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Ms.\",\n    \"price\": \"R$100,00\",\n    \"store_id\": \"1\",\n    \"active\": \"0\",\n    \"updated_at\": \"2022-07-13T18:35:20.000000Z\",\n    \"created_at\": \"2022-07-13T18:35:20.000000Z\",\n    \"id\": 25\n}"
+						}
+					]
+				},
+				{
+					"name": "update product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}api/products/2?name={{$randomNamePrefix}}&store_id=1&active=1",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"products",
+								"2"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{$randomNamePrefix}}",
+									"description": "deve ser do tipo string"
+								},
+								{
+									"key": "price",
+									"value": "101",
+									"description": "deve ser do tipo integer 1 a 999999",
+									"disabled": true
+								},
+								{
+									"key": "store_id",
+									"value": "1",
+									"description": "deve ser do tipo integer e estar relacionado a alguma loja"
+								},
+								{
+									"key": "active",
+									"value": "1",
+									"description": "deve ser do tipo bool, ou seja, 0 ou 1"
+								}
+							]
+						},
+						"description": "StatusCode: 200\n\nO que faz: Atualiza um produto"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/products/11?name=Miss&price=101&store_id=1&active=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products",
+										"11"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Miss"
+										},
+										{
+											"key": "price",
+											"value": "101"
+										},
+										{
+											"key": "store_id",
+											"value": "1"
+										},
+										{
+											"key": "active",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 18:36:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Debian)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "true"
+						}
+					]
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}api/products/2",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"products",
+								"2"
+							]
+						},
+						"description": "StatusCode: 204\n\nO que faz: Apaga um produto"
+					},
+					"response": [
+						{
+							"name": "204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/products/24",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products",
+										"24"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 18:36:45 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Debian)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Podemos encontrar os endPoints:\n\n| **Método** | **EndPoint** | **StatusCode** |\n| --- | --- | --- |\n| GET | lists products | 200 |\n| GET | list active products | 200 |\n| GET | list specify products | 200 |\n| POST | create product | 201 |\n| PUT | update product | 200 |\n| DEL | delete product | 204 |"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

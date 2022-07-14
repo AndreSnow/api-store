@@ -20,6 +20,7 @@ Essa api foi desenvolvida como uma loja. \
 Nela podemos criar produtos, novas lojas, há tambem uma função para quando uma nova loja ou produto é criada, receber por email a messagem de sucesso;
 
 Documentação no [postman](https://documenter.getpostman.com/view/14026033/UzQuN55J)
+Collection do [postman](/collection/Api%20Store.postman_collection.json)
 
 <a href=""></a>
 
