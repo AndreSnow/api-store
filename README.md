@@ -5,7 +5,6 @@
    - [Sobre](#sobre)
    - [Preview](#preview)
    - [Funcionalidades](#Funcionalidades)
-   - [Desafios e Aprendizados no Caminho](#desafios-e-aprendizados-no-caminho)
    - [Como Usar](#como-usar)
    - [Como Contribuir](#como-contribuir)
    - [Licença](#licença)
@@ -63,16 +62,6 @@ sobre a loja:
 <p align="center">
 <img src="https://i.ibb.co/jvNzvT7/Screenshot-from-2022-07-13-18-49-16.png"><width="400" alt="MailTrap Recebendo emails de sucesso">
 
----
-
-<h2 align="center">Desafios e Aprendizados no Caminho</h2>
-
-   <p>
-    <br>
-    <a>Foi um projeto onde eu quis me desafiar e posso dizer que consegui, apesar de já ter trabalhado com envio de emails, aqui eu decidir usar o RabbitMQ, por algum motivo ele não queria funciona, descobri que era um problema nas configurações do drive, infelizmente isso tomou muito tempo, mas fiz pois gostaria de entregar um projeto mais completo, também foi necessário relembrar alguns conceitos nas questões dos testes</a><br>
-   </p>
-
----
 
 <h2 align="center">Como Usar</h2>
 
